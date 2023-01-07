@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/form.css">
+
+  <title>Form</title>
+</head>
+
+<body>
+
+
+  <style>
+    h2{
+      font-size:20px !important;
+      margin-top: 2%;
+    }
+    .btn_color_kku {
+      background-color: #a73b24;
+      color: #ffff;
+    }
+
+    .btn_color_kku:hover {
+      background-color: #c5624b;
+      color: #ffff;
+
+    }
+
+    .btn_color_kku:active {
+      background-color: #c5624b;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+  </style>
+  <form  th:action="@{/upform}" method="post" th:object="${history}" enctype="multipart/form-data" class="klayut">
+    <div class="content">
+
+      <div class="container">
+
+
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+
+            <div class="row align-items-center">
+              <div class="col-lg-7 mb-5 mb-lg-0">
+
+                <h6 class="mb-10"style="color:rgb(80, 80, 82)"><b>form of [[${#request.userPrincipal.principal.username}]]</b></h6>
+                <label style="color:rgb(80, 80, 82)" >ขอลาหยุดตั้งแต่วันที่-จนถึงวันที่</label>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input name="date_start" id="date_start" type="date" th:field="*{startdate}" class="form-control">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input name="date_end" id="date_end" type="date" th:field="*{enddate}" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" list="techer_names" name="techer_name" id="techer_name" th:field="*{Historydetails.professor}"  placeholder="ชื่ออาจารย์">
+
+                    <datalist id="techer_names">
+                      <option value="คอปเตอร์ หล่อกว่ากล้ายุทธ">
+                        <option value="กล้ายุทธ หล่อกว่าฟุกกี้">
+                        <option value="ฟุกกี้ สุดหล่อ">
+                    </datalist>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" list="techer_emails" name="techer_email" id="techer_email" th:field="*{Historydetails.sendemail}"  placeholder="Email อาจารย์">
+
+                    <datalist id="techer_emails">
+                      <option value="sajawat.s@kkumail.com">
+                      <option value="totsukath@gmail.com">
+                      <option value="apichai.t@kkumail.com">
+                    </datalist>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" class="form-control" placeholder="รหัสนักศึกษา" name="id" id="id">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input type="text" class="form-control" placeholder="เบอร์โทร" th:field="*{Historydetails.phone}"  name="tel" id="tel">
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <textarea type="text" class="form-control" name="message" id="message" cols="30" rows="7"
+                      placeholder="รายละเอียด" th:field="*{Historydetails.details}" ></textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label style="color:rgb(80, 80, 82)"  > ใส่หลักฐาน</label>
+                    <input class="flieupload" type="file" accept="image/*,.pdf" name="file">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <script type="text/javascript"
+                    src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                  <div class="col-md-12">
+                    <input type="submit" value="ส่งใบลา"  class="btn btn-outline-primary">
+                  </div>
+                </div>
+  </form>
+
+  </div>
+  <div class="col-lg-4 ml-auto">
+    <img src="image/Fever 1.png">
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</body>
+
+</html>
