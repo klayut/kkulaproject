@@ -23,7 +23,7 @@ public class EmailSenderService {
                                 String subject) {
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setFrom("spring.email.from@gmail.com");
+        message.setFrom("email@gmail.com");
         message.setTo(toEmail);
         message.setText(body);
         message.setSubject(subject);
@@ -42,7 +42,7 @@ public class EmailSenderService {
         MimeMessageHelper mimeMessageHelper
                 = new MimeMessageHelper(mimeMessage, true);
 
-        mimeMessageHelper.setFrom("spring.email.from@gmail.com");
+        mimeMessageHelper.setFrom("email@gmail.com");
         mimeMessageHelper.setTo(toEmail);
         mimeMessageHelper.setText(body);
         mimeMessageHelper.setSubject(subject);
